@@ -7,6 +7,10 @@ import {editStudent} from './main.js'
 
 export default class App extends React.Component{
 
+    componentDidMount(){
+        this.props.dispatch({type: 'LOAD_STUDENT_SUCCESS'})
+    }
+
     handleDelete(id){
         if(confirm('Do you want to delete '+id)){
             this.props.dispatch({type: 'DELETE_STUDENT_SUCCESS', payload: id})
@@ -25,7 +29,7 @@ export default class App extends React.Component{
                     updateStudent={(s)=>this.props.dispatch({type: 'UPDATE_STUDENT', payload: s})}
                     addNewStudent={(s)=>this.props.dispatch({type: 'ADDNEW_STUDENT'})}
                     />
-                <StudentList students={this.props.students} 
+                    <StudentList students={this.props.students} 
                     deleteStudent={(id)=>this.handleDelete(id)}
                     editStudent={(id)=>this.handleEdit(id)}               
                 />

@@ -8,7 +8,8 @@ export default class StudentForm extends React.Component{
     }
 
     componentWillReceiveProps(props){
-        this.setState(props.editedStudent)
+        let student = props.editedStudent
+        this.setState({id: student.get('id'), name: student.get('name'), isEditing: student.get('isEditing')})
     }
     
     handleSave(){

@@ -2,10 +2,12 @@ import React from 'react'
 import App from './App.jsx'
 import About from './About.jsx'
 import {connect} from 'react-redux'
+import {toJS} from 'immutable'
 
 class Root extends React.Component{
     render(){
         let currentPath = window.location.pathname
+
         return(
             <div>
                 <div>
